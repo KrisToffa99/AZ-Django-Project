@@ -34,6 +34,9 @@ jobs:
         run:  python manage.py collectstatic --noinput
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
+      - name: Run Migration
+        run: python manage.py migrate
+        
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
 
